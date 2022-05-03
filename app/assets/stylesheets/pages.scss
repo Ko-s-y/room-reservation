@@ -1,0 +1,94 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ホームページ
+// ファーストビュー
+.first-view {
+  background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+  background-size: cover;
+  height: 600px;
+  background-repeat: no-repeat;
+}
+
+.form-search {
+  margin-left: 50px;
+  position: relative;
+  top: 200px;
+  background-color: white;
+  width: 450px;
+  height: 250px;
+  border-radius: 5%;
+}
+
+.home-search-btn {
+  background-color: rgb(40, 183, 214);
+  color: white;
+  width: 90%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.home-search input {
+  border-radius: 10px;
+  margin-top: 5px;
+  border: solid 1px black;
+}
+
+.form-title {
+  width: 90%;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.home-search {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.home-aria-search {
+  width: 90%;
+  height: 40px;
+  padding-left: 10px;
+}
+
+// セカンドビュー
+.second-text {
+  margin: 30px 40px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.img-flex {
+  list-style: none;
+  margin: 20px;
+  padding: 60px 0px;
+  text-align: center;
+  display: flex;
+}
+
+.img-flex li {
+  flex: auto;
+  width: 25%;
+  margin: 0 10px;
+}
+
+.img-flex {
+  position: absolute;
+}
+
+.aria-name {
+  position: relative;
+  bottom: 10%;
+  right: 47%;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.aria img {
+  height: 300px;
+  width: 80%;
+}

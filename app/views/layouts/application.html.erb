@@ -11,6 +11,18 @@
   </head>
 
   <body>
+
+    <%= render  "shared/navbar" %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    <footer>
+      <div class="footer-container">
+        <p class="footer-text">
+          © 2020 POTEPAN.INC.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

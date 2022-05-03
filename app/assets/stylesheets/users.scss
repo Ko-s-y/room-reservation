@@ -1,0 +1,81 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user-container {
+  width: 80%;
+  border: solid 1px black;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+.user-form-title {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+.user-element {
+  font-size: 20px;
+}
+
+.user-element-form {
+  width: 30%;
+  height: 35px;
+  font-size: 22px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  cursor: pointer;
+  width: 40%;
+  background-color: #4a90e2;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  margin: 15px 0 20px;
+  font-size: 20px;
+}
+
+.submit-btn:hover {
+  background-color: #0a57af;
+}
+
+.user-link-btn {
+  font-size: 20px;
+  display: inline-block;
+  margin: 10px 0;
+  color: #4a90e2;
+}
+
+.danger-btn {
+  cursor: pointer;
+  width: 40%;
+  background-color: rgb(217, 84, 84);
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.danger-btn:hover {
+  background-color: red;
+}
+
+.user-container-show {
+  width: 99%;
+  height: auto;
+  border: solid 1px black;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+.user-image {
+  border-radius: 50%;
+  width:  180px;
+  height: 180px;
+  margin-bottom: 30px;
+}

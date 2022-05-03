@@ -1,0 +1,40 @@
+// レスポンシブデザイン
+@media (max-width: 1000px) {
+
+  .nav-search {
+    display: none;
+  }
+
+  .img-flex {
+    flex-wrap: wrap;
+  }
+
+  .img-flex li {
+    width: 40%;
+  }
+
+  footer {
+    position: relative;
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 670px) {
+
+  .nav-search {
+    display: none;
+  }
+
+  .img-flex {
+    flex-direction: column;
+  }
+
+  .img-flex li {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  footer {
+    min-height: 110vh;
+  }
+}

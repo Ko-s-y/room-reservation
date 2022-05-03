@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        full_name: 氏名
+        current_password: パスワード
+        password_confirmation: パスワードの確認
+        password: パスワード
+        email: メールアドレス
+        introduction: 自己紹介
+  time:
+    formats:
+      full_date: "%Y年%m月%d日 (%a)"
+  date:
+    formats:
+      default: '%Y年 %m月 %d日 %H時 %M分'
+      short: '%Y年 %m月 %d日'
