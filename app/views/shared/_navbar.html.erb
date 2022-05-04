@@ -30,16 +30,12 @@
     </div>
     <div id="targetMenu" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item nav-name"><%= current_user.full_name %></div>
+        <div class="navbar-item"></div>
         <div class="navbar-item">
           <div class="buttons">
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-item dropdown-menu">
-                <figure class="image is-128x128">
-                  <div class="nav-user-img">
-                    <%= image_tag avatar_url(current_user), class: "is-rounded" %>
-                  </div>
-                </figure>
+              <a class="dropdown-menu navbar-item nav-name">
+                <%= current_user.full_name %>
               </a>
               <div class="navbar-dropdown">
                 <%= link_to  "ルーム登録", "/rooms/new", class: "navbar-item" %>
@@ -53,6 +49,7 @@
             </div>
           </div>
         </div>
+        <span><%= image_tag avatar_url(current_user), class: "nav-icon" %></span>
       </div>
     </div>
   <% end %>
