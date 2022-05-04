@@ -9,12 +9,11 @@ class UsersController < ApplicationController
     end
 
     def new
-      @user = User.new(current_user_params)
+      @user = User.new(user_params)
     end
 
     def update
-      @user = current_user
-      if @user.update(current_user_params)
+      if @user.update(user_params)
         flash[:notice] = "保存しました"
       else
         flash[:alert] = "更新できません"
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
       @user = current_user
     end
 
-    def current_user_params
+    def user_params
       params.require(:user).permit(:name, :email, :password, :avatar, :introduction)
     end
 

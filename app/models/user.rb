@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :rooms
+
   has_one_attached :avatar
 
   # Include default devise modules. Others available are:
@@ -9,7 +11,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :full_name, presence: true, length: {maximum: 30}
-  validates :email, presence: true, length: {maximum: 30}
-  validates :introduction, presence: true, length: {maximum: 100}
+  validates :email, presence: true, length: {maximum: 30}, uniqueness: true
+
+  # パスワードの字数制限は　　/config/initializers/devise.rb　に記述　　8..128に変更　
 
 end

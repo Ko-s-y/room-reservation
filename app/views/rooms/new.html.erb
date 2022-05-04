@@ -1,0 +1,27 @@
+<h2>ここは新しくルーム登録するページやで！</h2>
+<div class="room-container">
+  <div class="room-form-title">ルーム登録</div>
+    <%= form_for @room do |f| %>
+      <table class="form-table">
+        <tr>
+          <th><%= f.label :room_name ,"ルーム名", class: "room-element" %></th>
+          <td><%= f.text_field :room_name, class: "room-element-form", :placeholder => "ルーム名を入力" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :address ,"住所",class: "room-element"  %></th>
+          <td><%= f.text_field :address, class: "room-element-form", :placeholder => "住所を入力" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :price ,"価格", class: "room-element" %></th>
+          <td><%= f.text_field :price, class: "room-element-form", :placeholder => "１日あたりの料金を入力" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :description ,"詳細", class: "room-element" %></th>
+          <td><%= f.text_area :description, class: "room-element-form room-text", :placeholder => "ルーム説明を入力" %></td>
+        </tr>
+      </table>
+      <div><%= f.submit "登録する", class: "room-submit-btn" %></div>
+      <div><%= link_to "戻る", :back, class: "room-link-btn" %></div>
+    <% end %>
+  </div>
+</div>

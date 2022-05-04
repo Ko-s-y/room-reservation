@@ -1,0 +1,114 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.room-container{
+  width: 80%;
+  border: solid 1px black;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+.form-table {
+  margin: 30px auto;
+}
+
+.room-form-title {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+.room-element {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.room-element-form {
+  width: 300px;
+  height: 35px;
+  font-size: 22px;
+  border-radius: 5px;
+  border: solid 2px black;
+  margin: 2px 0;
+  padding-left: 5px;
+  padding-top: 2px;
+}
+
+.room-submit-btn {
+  cursor: pointer;
+  width: 40%;
+  background-color: #4a90e2;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.room-submit-btn:hover {
+  background-color: #0a57af;
+}
+
+.room-danger-btn {
+  cursor: pointer;
+  width: 40%;
+  background-color: rgb(217, 84, 84);
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.room-danger-btn:hover {
+  background-color: red;
+}
+
+.room-text {
+  height: 150px;
+}
+
+textarea {
+  resize: none;
+}
+
+.room-link-btn {
+  margin-bottom: 15px;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.room-table {
+  border: solid 2px black;
+  width: 99%;
+  margin: 20px 5px;
+}
+
+.room-table th {
+  background-color: rgb(101, 96, 96);
+  color: white;
+  padding: 10px 20px;
+}
+
+.room-table td {
+  background-color: rgb(242, 238, 238);
+  padding: 10px 20px;
+}
+
+.img-regi {
+  width: 180px;
+  height: 120px;
+}
+
+.img-show {
+  width: 300px;
+  height: 220px;
+}
+
+.page-title {
+  font-size: 25px;
+  display: block;
+  margin: 30px;
+}

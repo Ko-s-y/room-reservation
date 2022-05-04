@@ -1,0 +1,33 @@
+
+
+<h2>登録ルーム詳細ページやで〜！</h2>
+<div class="room-container">
+  <div class="room-form-title">ルーム情報詳細</div>
+    <table class="form-table">
+      <tr>
+        <th>ルーム名</th>
+        <td><%= @room.room_name %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @room.address %></td></tr>
+      <tr>
+        <th>１日当たりの価格</th>
+        <td><%= @room.price %></td>
+      </tr>
+      <tr>
+        <th>イメージ画像</th>
+        <td><%= image_tag "/assets/default.jpeg", class: "img-show" %></td>
+      </tr>
+      <tr>
+        <th>登録ユーザーのID</th>
+        <td><%= @room.user_id %></td>
+      </tr>
+      <tr>
+        <th>詳細</th>
+        <td><%= @room.description %></td>
+      </tr>
+    </table>
+    <div><%= link_to "戻る", :back, class: "user-link-btn" %></div>
+  </div>
+</div>
