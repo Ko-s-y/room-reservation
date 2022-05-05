@@ -14,8 +14,8 @@
     <td><%= @user.email %></td>
   </tr><br /><br />
   <div>
-    <p><%= link_to "編集ページへ", edit_user_registration_path, class: "submit-btn" %></p><br />
-    <p><%= link_to "プロフィールページへ", "/users/#{@current_user.id}/info" , class: "submit-btn" %></p><br />
-    <p><%= link_to "戻る", :back, class: "danger-btn" %></p><br />
+    <p><%= link_to "編集ページへ", edit_user_registration_path, class: "submit-btn btn-sub btn-op" %></p><br />
+    <p><%= link_to "プロフィールページへ", "/users/#{@current_user.id}/info" , class: "submit-btn btn-sub btn-op" %></p>
+    <p><%= link_to "戻る", :back, class: "user-link-btn sub-op" %></p>
   </div>
 </table>

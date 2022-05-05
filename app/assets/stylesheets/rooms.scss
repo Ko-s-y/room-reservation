@@ -111,4 +111,55 @@ textarea {
   font-size: 25px;
   display: block;
   margin: 30px;
+  top: 100px;
+}
+
+.app-intro {
+  font-size: 30px;
+  text-align: center;
+  display: block;
+  padding-top: 100px;
+  color: rgb(16, 157, 162);
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+.intro-container {
+  height: 800px;
+  background-image: url("app_intro2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.room-counter {
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: large;
+}
+
+.app-intro-btn {
+  width: 40%;
+  background-color: rgb(78, 114, 225);
+  color: white;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 30px;
+  box-shadow: 0 5px black;
+  position: relative;
+  top: 125px;
+}
+
+
+.app-intro-btn:active {
+  box-shadow: none;
+  margin-top: 5px;
+}
+
+.app-intro-btn:hover {
+  background-color: #0a57af;
 }

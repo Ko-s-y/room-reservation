@@ -34,8 +34,9 @@
   border-radius: 5px;
   color: white;
   height: 40px;
-  margin: 15px 0 20px;
   font-size: 20px;
+  display: block;
+  text-align: center;
 }
 
 .submit-btn:hover {
@@ -45,7 +46,7 @@
 .user-link-btn {
   font-size: 20px;
   display: inline-block;
-  margin: 10px 0;
+  margin-bottom: 10px;
   color: #4a90e2;
 }
 
@@ -61,7 +62,7 @@
 }
 
 .danger-btn:hover {
-  background-color: red;
+  background-color: rgb(212, 59, 59);
 }
 
 .user-container-show {

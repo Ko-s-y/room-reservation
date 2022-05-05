@@ -30,7 +30,7 @@
         <td><%= @room.description %></td>
       </tr>
     </table>
-    <div><%= link_to "ルームを削除する", @room, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "danger-btn" %></div>
-    <div><%= link_to "戻る", :back, class: "user-link-btn" %></div>
+    <div><%= link_to "ルームを削除する", @room, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "danger-btn btn-op btn-sub" %></div>
+    <div><%= link_to "戻る", :back, class: "room-link-btn sub-op" %></div>
   </div>
 </div>

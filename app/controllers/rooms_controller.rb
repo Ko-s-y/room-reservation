@@ -1,12 +1,14 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :passer
+  before_action :passer, except: [:show]
 
   def index
   end
 
   def registered
     @rooms = current_user.rooms  # ログイン中ユーザーが登録したroom一覧ページのみ取得
+    @regi_rooms = Room.count
+    @user = current_user
   end
 
   def reserved  # reserveテーブル作ったら訂正
@@ -29,6 +31,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
   end
 
   def edit
