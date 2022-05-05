@@ -1,5 +1,5 @@
 <h1 class="page-title">予約済みルーム一覧</h1>
-<h1>reserveテーブル作ったら訂正</h1>
+<h2 class="room-counter">予約件数は<%= @rese_rooms %>件です</h2>
 
 <table class="room-table">
   <div class="room-regi-container">
@@ -14,19 +14,19 @@
         <th>予約確定日時</th>
       </tr>
     </thead>
-
     <tbody>
-      <%# <% @rooms.each do |room| %>
+      <% @reservations.each do |reservation| %>
         <tr>
-          <td>@room.image</td>
-          <td>@room.room_name</td>
-          <td>@room.description</td>
-          <td>@reserved.total_price</td>
-          <td>@reserved.start_date</td>
-          <td>@reserved.finish_date</td>
-          <td>@reserved.created_at.to_s(:datetime_jp)</td>
+          <td><a href =<%= "/rooms/#{@room.id}/show" %>><%= image_tag avatar_url(@room), class: "room-regi" %></a></td>
+          <td><%= @room.room_name %></td>
+          <td><%= @room.description %></td>
+          <td><%= @room.price %></td>
+          <td><%= reservation.start_date %></td>
+          <td><%= reservation.end_date %></td>
+          <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+          <td></td>
         </tr>
-      <%# <% end %>
+      <% end %>
     </tbody>
   </div>
 </table>

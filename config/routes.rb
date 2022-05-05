@@ -13,12 +13,11 @@ Rails.application.routes.draw do
 
   get '/rooms/:id/show', to: 'rooms#show'
   get '/rooms/registered', to: 'rooms#registered'
-  get '/rooms/reserved', to: 'rooms#reserved'
   get '/rooms/index', to: 'rooms#index'
 
-  resources :rooms
+  post '/reservations/new', to: 'reservations#create'
 
-  get 'reservations', to: 'reservations#index'
+  resources :rooms
 
   resources :reservations
 

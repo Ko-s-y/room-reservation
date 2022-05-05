@@ -39,7 +39,7 @@
               </a>
               <div class="navbar-dropdown">
                 <%= link_to  "ルーム登録", "/rooms/new", class: "navbar-item" %>
-                <%= link_to  "予約済みルーム一覧", "/rooms/reserved", class: "navbar-item" %>
+                <%= link_to  "予約済みルーム一覧", "/reservations", class: "navbar-item" %>
                 <%= link_to  "登録済みルーム一覧", "/rooms/registered", class: "navbar-item" %>
                 <%= link_to  "アカウント編集", edit_user_registration_path, class: "navbar-item" %>
                 <%= link_to  "アカウント詳細", "/users/#{current_user.id}/show", class: "navbar-item" %>
