@@ -10,4 +10,14 @@ module ApplicationHelper
     end
   end
 
+  def avatar_url(room)
+    if room.avatar.attached?
+        url_for(room.avatar)
+    elsif room.image?
+        room.image
+    else
+        ActionController::Base.helpers.asset_path('sample.jpg')
+    end
+  end
+
 end

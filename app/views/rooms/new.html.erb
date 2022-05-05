@@ -1,23 +1,27 @@
-<h2>ここは新しくルーム登録するページやで！</h2>
+<h1 class="page-title">ルーム登録ページ</h1>
 <div class="room-container">
   <div class="room-form-title">ルーム登録</div>
     <%= form_for @room do |f| %>
       <table class="form-table">
         <tr>
-          <th><%= f.label :room_name ,"ルーム名", class: "room-element" %></th>
+          <th><%= f.label :room_name ,"ルーム名(必須)", class: "room-element" %></th>
           <td><%= f.text_field :room_name, class: "room-element-form", :placeholder => "ルーム名を入力" %></td>
         </tr>
         <tr>
-          <th><%= f.label :address ,"住所",class: "room-element"  %></th>
+          <th><%= f.label :address ,"住所(必須)",class: "room-element"  %></th>
           <td><%= f.text_field :address, class: "room-element-form", :placeholder => "住所を入力" %></td>
         </tr>
         <tr>
-          <th><%= f.label :price ,"価格", class: "room-element" %></th>
+          <th><%= f.label :price ,"価格(必須)", class: "room-element" %></th>
           <td><%= f.text_field :price, class: "room-element-form", :placeholder => "１日あたりの料金を入力" %></td>
         </tr>
         <tr>
-          <th><%= f.label :description ,"詳細", class: "room-element" %></th>
+          <th><%= f.label :description ,"詳細(必須)", class: "room-element" %></th>
           <td><%= f.text_area :description, class: "room-element-form room-text", :placeholder => "ルーム説明を入力" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :avatar ,"ルーム画像(必須)", class: "room-element" %></th>
+          <td><%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %></td>
         </tr>
       </table>
       <div><%= f.submit "登録する", class: "room-submit-btn" %></div>

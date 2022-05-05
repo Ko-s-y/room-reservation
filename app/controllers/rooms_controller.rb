@@ -38,6 +38,9 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+    @room.destroy
+    flash[:notice] = "ルームを削除しました"
+    redirect_to "/rooms/registered"
   end
 
   private
@@ -47,7 +50,7 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:room_name, :description, :price, :address)
+    params.require(:room).permit(:room_name, :description, :price, :address, :avatar)
   end
 
 end

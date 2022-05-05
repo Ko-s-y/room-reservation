@@ -16,7 +16,7 @@
     <tbody>
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= link_to "a" %></td>
+          <td><a href =<%= "/rooms/#{room.id}/show" %>><%= image_tag avatar_url(room), class: "room-regi" %></a></td>
           <td><%= link_to room.room_name, "/rooms/#{room.id}/show" %></td>
           <td><%= room.address %></td>
           <td><%= room.description %></td>

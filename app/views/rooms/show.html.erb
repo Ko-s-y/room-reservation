@@ -1,9 +1,11 @@
-
-
-<h2>登録ルーム詳細ページやで〜！</h2>
+<h1 class="page-title">ルーム詳細ページ</h1>
 <div class="room-container">
   <div class="room-form-title">ルーム情報詳細</div>
     <table class="form-table">
+      <tr>
+        <th>ルーム番号</th>
+        <td><%= @room.id %></td>
+      </tr>
       <tr>
         <th>ルーム名</th>
         <td><%= @room.room_name %></td>
@@ -17,10 +19,10 @@
       </tr>
       <tr>
         <th>イメージ画像</th>
-        <td><%= image_tag "/assets/default.jpeg", class: "img-show" %></td>
+        <td><%= image_tag avatar_url(@room), class: "room-show" %></td>
       </tr>
       <tr>
-        <th>登録ユーザーのID</th>
+        <th>登録ユーザーのID(確認用)</th>
         <td><%= @room.user_id %></td>
       </tr>
       <tr>
@@ -28,6 +30,7 @@
         <td><%= @room.description %></td>
       </tr>
     </table>
+    <div><%= link_to "ルームを削除する", @room, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "danger-btn" %></div>
     <div><%= link_to "戻る", :back, class: "user-link-btn" %></div>
   </div>
 </div>
