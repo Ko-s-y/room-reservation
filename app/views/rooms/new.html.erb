@@ -1,4 +1,7 @@
 <h1 class="page-title">ルーム登録ページ</h1>
+
+<%= render "shared/error", obj: @room %>
+
 <div class="room-container">
   <div class="room-form-title">ルーム登録</div>
     <%= form_for @room do |f| %>

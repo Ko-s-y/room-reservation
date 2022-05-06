@@ -1,0 +1,14 @@
+--reservationモデル
+  validate
+  totol_price
+  確認画面
+  登録フォーム
+  index予約idちゃんと取れてない!
+
+--search機能
+
+--全体の確認
+  scss
+  登録ルームの競合
+  自分の登録したルーム以外削除ボタン消す->予約が一件でも入っていたら削除できないように
+  routes 修正

@@ -16,14 +16,21 @@ class ReservationsController < ApplicationController
     @reservation = current_user.reservations.build(reservation_params)
     if @reservation.save
       flash[:notice] = "お部屋の予約が完了しました"
+      redirect_to "/reservations"
     else
-      #binding.pry
       flash[:alert] = "お部屋の予約に失敗しました"
+      render "rooms/show"
     end
-    redirect_to "/rooms/registered"
+  end
+
+  def show
   end
 
   def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    flash[:notice] = "予約を取り消ししました"
+    redirect_to "/reservations"
   end
 
   private

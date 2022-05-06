@@ -9,5 +9,6 @@ class Room < ApplicationRecord
   validates :description, presence: true, length: {maximum: 200}
   validates :price, presence: true, length: {maximum: 8}
   validates :address, presence: true, length: {maximum: 40}
+  validates :avatar, presence: true
 
 end

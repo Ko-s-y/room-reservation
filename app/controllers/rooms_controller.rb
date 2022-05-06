@@ -23,12 +23,13 @@ class RoomsController < ApplicationController
       redirect_to "/rooms/registered"
     else
       flash[:alert] = "お部屋の登録に失敗しました"
-      render "new"
+      render "rooms/new"
     end
   end
 
   def show
     @room = Room.find(params[:id])
+    @reservation = Reservation.find_by(params[:id])
   end
 
   def destroy

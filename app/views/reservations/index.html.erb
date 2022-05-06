@@ -12,19 +12,20 @@
         <th>開始日</th>
         <th>終了日</th>
         <th>予約確定日時</th>
+        <th>キャンセル</th>
       </tr>
     </thead>
     <tbody>
       <% @reservations.each do |reservation| %>
         <tr>
           <td><a href =<%= "/rooms/#{@room.id}/show" %>><%= image_tag avatar_url(@room), class: "room-regi" %></a></td>
-          <td><%= @room.room_name %></td>
+          <td><%= link_to @room.room_name, "/rooms/#{@room.id}/show" %></td>
           <td><%= @room.description %></td>
           <td><%= @room.price %></td>
           <td><%= reservation.start_date %></td>
           <td><%= reservation.end_date %></td>
           <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
-          <td></td>
+          <td><%= link_to "キャンセル", reservation, method: :delete, data: {confirm: "この予約をキャンセルしますか？"} %></td>
         </tr>
       <% end %>
     </tbody>
