@@ -32,8 +32,9 @@ class ReservationsController < ApplicationController
       flash[:notice] = "お部屋の予約が完了しました"
       redirect_to "/reservations"
     else
-      flash.now[:alert] = "お部屋の予約に失敗しました"
-      render "rooms/show"
+      redirect_to "/rooms/#{@reservation.room.id}/show"
+      flash[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today + 1
+      flash[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date
     end
   end
 
@@ -56,7 +57,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.permit(:user_id, :room_id, :start_date, :end_date, :people_number)
+    params.permit(:user_id, :room_id, :start_date, :end_date, :people_number, :total_price)
   end
 
 end

@@ -1,7 +1,4 @@
 <h1 class="page-title">ルーム詳細ページ</h1>
-
-<%= render "shared/error", obj: @reservation %>
-
 <div class="room-container">
   <div class="room-form-title">ルーム情報詳細</div>
     <table class="form-table">
@@ -43,17 +40,18 @@
     <%= form_with url: new_reservation_path, method: :post do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.hidden_field :total_price, value: 200000 %>
       <div class="field">
-        <span><%= f.label :start_date ,"チェックイン日時", class: "reserve-element" %></span>
-        <span><%= f.datetime_field :start_date, class: "reserve-element-form" %></span>
+        <span><%= f.label :start_date ,"チェックイン日時(必須)", class: "reserve-element" %></span>
+        <span><%= f.datetime_field :start_date, class: "reserve-element-form", required: true  %></span>
       </div>
       <div class="field">
-        <th><%= f.label :end_date ,"チェックアウト日時", class: "reserve-element" %></th>
-        <td><%= f.datetime_field :end_date, class: "reserve-element-form" %></td>
+        <th><%= f.label :end_date ,"チェックアウト日時(必須)", class: "reserve-element" %></th>
+        <td><%= f.datetime_field :end_date, class: "reserve-element-form", required: true %></td>
       </div>
       <div class="field">
-        <th><%= f.label :people_number ,"人数", class: "reserve-element" %></th>
-        <td><%= f.number_field :people_number, class: "reserve-element-form" %></td>
+        <th><%= f.label :people_number ,"人数(必須,8名まで)", class: "reserve-element" %></th>
+        <td><%= f.number_field :people_number, class: "reserve-element-form", required: true, in: 1..8 %></td>
       </div>
       <div class="field"><%= f.submit "予約する", class: "submit-btn reserve-btn" %></div>
     <% end %>

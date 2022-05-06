@@ -21,12 +21,13 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.build(room_params)
+    @reservation = Reservation.new
     if @room.save
       flash[:notice] = "お部屋を登録しました"
       redirect_to "/rooms/registered"
     else
       flash.now[:alert] = "お部屋の登録に失敗しました"
-      render "rooms/show"
+      render "rooms/new"
     end
   end
 
@@ -48,8 +49,8 @@ class RoomsController < ApplicationController
   end
 
   def evaluate
-    # check_in = @reservation.start_date# d.strftime('%d')
-    # check_out = @reservation.end_date# .strftime('%d')
+    # @check_in = @reservation.start_date#.strftime('%d')
+    # @check_out = @reservation.end_date#.strftime('%d')
     # @night_count = @check_out.to_i - @check_in.to_i
     # @day_count = @night_count + 1
     # @total_price = @room.price * @night_count
