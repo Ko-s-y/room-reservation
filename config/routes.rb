@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/rooms/index', to: 'rooms#index'
 
   post '/reservations/new', to: 'reservations#create'
+  get '/reservations/confirmation', to: 'reservations#confirmation'
 
   resources :rooms
 

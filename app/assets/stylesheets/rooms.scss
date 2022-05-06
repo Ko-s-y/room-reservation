@@ -112,6 +112,7 @@ textarea {
   display: block;
   margin: 30px;
   top: 100px;
+  border-bottom: solid 1px rgb(56, 46, 46);
 }
 
 .app-intro {
@@ -153,7 +154,6 @@ textarea {
   position: relative;
   top: 125px;
 }
-
 
 .app-intro-btn:active {
   box-shadow: none;

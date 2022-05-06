@@ -2,6 +2,9 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :passer, except: [:show]
 
+  #before_action :evaluate, only: [:show]
+  #after_action :evaluate, only: [:show]
+
   def index
     # @rooms = Room.all
   end
@@ -22,14 +25,14 @@ class RoomsController < ApplicationController
       flash[:notice] = "お部屋を登録しました"
       redirect_to "/rooms/registered"
     else
-      flash[:alert] = "お部屋の登録に失敗しました"
-      render "rooms/new"
+      flash.now[:alert] = "お部屋の登録に失敗しました"
+      render "rooms/show"
     end
   end
 
   def show
     @room = Room.find(params[:id])
-    @reservation = Reservation.find_by(params[:id])
+    @reservation = Reservation.new
   end
 
   def destroy
@@ -42,6 +45,14 @@ class RoomsController < ApplicationController
 
   def passer
     @room = Room.find_by(params[:id])
+  end
+
+  def evaluate
+    # check_in = @reservation.start_date# d.strftime('%d')
+    # check_out = @reservation.end_date# .strftime('%d')
+    # @night_count = @check_out.to_i - @check_in.to_i
+    # @day_count = @night_count + 1
+    # @total_price = @room.price * @night_count
   end
 
   def room_params

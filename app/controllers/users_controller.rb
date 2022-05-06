@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         flash[:notice] = "保存しました"
       else
-        flash[:alert] = "更新できません"
+        flash.now[:alert] = "更新できません"
       end
       render "info"
     end

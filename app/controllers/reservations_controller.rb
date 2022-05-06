@@ -2,9 +2,23 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :passer
 
+  # before_action :evaluate, only: [:index, :confirmation]
+
+  # def evaluate
+  #   check_in = @reservation.start_date.strftime('%d')
+  #   check_out = @reservation.end_date.strftime('%d')
+  #   @night_count = @check_out.to_i - @check_in.to_i
+  #   @day_count = @night_count + 1
+  #   @total_price = @room.price * @night_count
+  # end
+
+
   def index
-    @reservations = Reservation.all
-    @rese_rooms = Reservation.count
+    @reservations = @user.reservations
+    @reserve_counter = Reservation.count
+  end
+
+  def confirmation
   end
 
   def new
@@ -18,7 +32,7 @@ class ReservationsController < ApplicationController
       flash[:notice] = "お部屋の予約が完了しました"
       redirect_to "/reservations"
     else
-      flash[:alert] = "お部屋の予約に失敗しました"
+      flash.now[:alert] = "お部屋の予約に失敗しました"
       render "rooms/show"
     end
   end
