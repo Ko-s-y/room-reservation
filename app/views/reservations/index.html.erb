@@ -4,6 +4,7 @@
   <div class="room-regi-container">
     <thead>
       <tr>
+        <th>予約ID</th>
         <th>ルーム画像</th>
         <th>ルーム名</th>
         <th>ルーム紹介</th>
@@ -11,13 +12,14 @@
         <th>合計金額</th>
         <th>チェックイン日</th>
         <th>チェックアウト日</th>
-        <th>予約確定日時</th>
-        <th>取消</th>
+        <th>取り消し</th>
+        <th>予約詳細</th>
       </tr>
     </thead>
     <tbody>
       <% @user.reservations.each do |reservation| %>
         <tr>
+          <td><%= reservation.id %></td>
           <td><a href =<%= "/rooms/#{reservation.room.id}/show" %>><%= image_tag avatar_url(reservation.room), class: "room-regi" %></a></td>
           <td><%= link_to reservation.room.room_name, "/rooms/#{reservation.room.id}/show" %></td>
           <td><%= reservation.room.description %></td>
@@ -25,8 +27,8 @@
           <td><%= reservation.total_price %></td>
           <td><%= reservation.start_date %></td>
           <td><%= reservation.end_date %></td>
-          <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
-          <td><%= link_to "取消", reservation, method: :delete, data: {confirm: "この予約を取り消しますか？"} %></td>
+          <td><%= link_to "取り消し", reservation, method: :delete, data: {confirm: "この予約を取り消しますか？"} %></td>
+          <td><%= link_to "詳細確認", "/reservations/#{reservation.id}/show" %></td>
         </tr>
       <% end %>
     </tbody>

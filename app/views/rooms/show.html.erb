@@ -12,7 +12,8 @@
       </tr>
       <tr>
         <th>住所</th>
-        <td><%= @room.address %></td></tr>
+        <td><%= @room.address %></td>
+      </tr>
       <tr>
         <th>１日当たりの価格</th>
         <td><%= @room.price %></td>
@@ -35,9 +36,13 @@
   </div>
 </div>
 
+<%#  　＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ %>
+
 <div class="reserve-container">
   <div class="room-form-title">ルーム予約</div>
-    <%= form_with url: new_reservation_path, method: :post do |f| %>
+    <%= form_with model: @reservation, url: reservations_confirmation_path do |f| %>
+     <%# <%= form_with model:@reservation,method: :post, url:reservations_confirmation_path do |f| %> %>
+    <%# <%= form_with url: new_reservation_path, method: :post do |f| %>   %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.hidden_field :total_price, value: 200000 %>

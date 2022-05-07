@@ -5,10 +5,21 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {sign_up: 'register', sign_in: 'login', sign_out: 'logout'}
 
 
+################################################################
 
-  #post 'reservations/new', to: 'reservations#confirm'
+
+  #  post 'reservations/new', to: 'reservations#confirm'
+  #  post 'reservations/confirm', to: 'reservations#create'
+  #post 'reservations/new' => 'reservations#confirm'
+  #post 'reservations/confirmation' => 'reservations#create'
+  post 'room/:id/show', to: 'reservations#confirm'
+  post 'reservations/confirmation', to: 'reservations#confirm'
+  post 'reservations/new', to:  'reservations#create'
 
 
+################################################################
+  get 'reservations/:id/show' => 'reservations#show'
+  get 'reservations' => 'reservations#index'
 
   get 'pages/home'
 
@@ -21,7 +32,9 @@ Rails.application.routes.draw do
   get '/rooms/registered', to: 'rooms#registered'
   get '/rooms/index', to: 'rooms#index'
 
-  post '/reservations/new', to: 'reservations#create'
+
+  # post '/reservations/new', to: 'reservations#create'
+
   get '/reservations/confirmation', to: 'reservations#confirmation'
 
   resources :rooms
