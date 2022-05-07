@@ -44,7 +44,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    flash[:notice] = "予約を取り消ししました"
+    flash[:notice] = "予約を取り消しました"
     redirect_to "/reservations"
   end
 

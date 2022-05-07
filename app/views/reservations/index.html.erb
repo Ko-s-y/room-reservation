@@ -26,7 +26,7 @@
           <td><%= reservation.start_date %></td>
           <td><%= reservation.end_date %></td>
           <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
-          <td><%= link_to "取消", reservation, method: :delete, data: {confirm: "この予約を取消しますか？"} %></td>
+          <td><%= link_to "取消", reservation, method: :delete, data: {confirm: "この予約を取り消しますか？"} %></td>
         </tr>
       <% end %>
     </tbody>
