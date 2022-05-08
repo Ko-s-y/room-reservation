@@ -6,9 +6,12 @@
 
 <div class="reserve-container">
   <div class="room-form-title">予約最終確認</div>
-    <%# <%= form_with model: @reserve, url:  reservations_confirmation_url do |f| %> %>
+
+
     <%= form_with url: new_reservation_path, method: :post do |f| %>
     <%# <%= form_with(model: @reservation, method: :post, local: true) do |f| %> %>
+
+
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.hidden_field :total_price, value: 200000 %>
@@ -16,18 +19,22 @@
       <%= f.hidden_field :start_date, value: @reservation.start_date %>
       <%= f.hidden_field :end_date, value: @reservation.end_date %>
       <div class="field">
-        <span><%= f.label :start_date ,"チェックイン日時(必須)", class: "reserve-element" %></span>
-        <span><%= f.datetime_field :start_date, class: "reserve-element-form", required: true  %></span>
+        <span><%= f.label :start_date ,"チェックイン日時", class: "reserve-element" %></span>
+        <span><%= @reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
       </div>
       <div class="field">
-        <th><%= f.label :end_date ,"チェックアウト日時(必須)", class: "reserve-element" %></th>
-        <td><%= f.datetime_field :end_date, class: "reserve-element-form", required: true %></td>
+        <span><%= f.label :end_date ,"チェックアウト日時", class: "reserve-element" %></th>
+        <span><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
       </div>
       <div class="field">
-        <th><%= f.label :people_number ,"人数(必須,8名まで)", class: "reserve-element" %></th>
-        <td><%= f.number_field :people_number, class: "reserve-element-form", required: true, in: 1..8 %></td>
+        <span><%= f.label :people_number ,"人数", class: "reserve-element" %></th>
+        <span><%= @reservation.people_number %></td>
       </div>
-      <p class="small-str">こちらの内容でよろしければ「予約を確定する」ボタンをを押してください</p>
+      <div class="field">
+        <span><%= f.label :people_number ,"合計金額", class: "reserve-element" %></th>
+        <span><%= @reservation.total_price %></td>
+      </div>
+      <p class="small-str">*こちらの内容でよろしければ「予約を確定する」ボタンをを押してください</p>
       <div><%= f.submit "予約を確定する", class: "submit-btn reserve-btn" %></div>
       <div><%= link_to "予約を見直す", :back, class: "user-link-btn danger-btn rese-back" %></div>
     <% end %>

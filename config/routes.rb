@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 ################################################################
 
 
+
   #  post 'reservations/new', to: 'reservations#confirm'
   #  post 'reservations/confirm', to: 'reservations#create'
   #post 'reservations/new' => 'reservations#confirm'
@@ -17,9 +18,10 @@ Rails.application.routes.draw do
   post 'reservations/new', to:  'reservations#create'
 
 
+
 ################################################################
-  get 'reservations/:id/show' => 'reservations#show'
-  get 'reservations' => 'reservations#index'
+  get 'reservations/:id/show', to: 'reservations#show'
+  get 'reservations', to: 'reservations#index'
 
   get 'pages/home'
 

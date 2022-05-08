@@ -11,7 +11,8 @@ class RoomsController < ApplicationController
 
   def registered
     @rooms = current_user.rooms  # ログイン中ユーザーが登録したroom一覧ページのみ取得
-    @regi_rooms = Room.count
+    @regi_rooms = @rooms.count
+    @total_rooms = Room.count
     @user = current_user
   end
 

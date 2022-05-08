@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :passer
+  before_action :passer, except: [:confirm]
 
   # before_action :evaluate, only: [:index, :confirmation]
 
@@ -20,37 +20,22 @@ class ReservationsController < ApplicationController
 
 
   def confirm
-    @reservation = current_user.reservations.build
-    #@reservation = Reservation.new(reservation_params)
+    @user = current_user
+
+    # @reservation = Reservation.create(reservation_params)
+    # @reservation = @user.reservation.build
+    @reservation = Reservation.new(reservation_params)
+
     @room = Room.find_by(@reservation.room_id)
+    # @room = Room.find_by(id: params[:room_id])
+    # @room = Room.find_by(@reservation.room_id)
     # @room = Room.find_by(params[:id])
-    render template: "reservations/#{@reservation.id}/confirmation" if @reservation.invalid?
-    # unless @reservation.invalid?
-    #   redirect_to "/rooms/#{@reservation.room.id}/show"
-    #   # redirect_to "/reservations/#{@reservation.id}/confirmation"
-    #   flash[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today + 1
-    #   flash[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date
-    # end
-  end
 
+    binding.pry
 
-  def show
-    @reservation = Reservation.find(params[:id])
-  end
+    if @reservation.invalid?
+      render template: "reservations/#{@reservation.id}/confirmation"
 
-
-
-#####################################################################
-
-  def new
-    @reservation = current_user.reservations.build  #1対多の為、build
-  end
-
-  def create
-    @reservation = current_user.reservations.build(reservation_params)
-    if @reservation.save
-      flash[:notice] = "お部屋の予約が完了しました"
-      redirect_to "/reservations/#{@reservation.id}/show"
     else
       redirect_to "/rooms/#{@reservation.room.id}/show"
       # redirect_to "/reservations/#{@reservation.id}/confirmation"
@@ -59,13 +44,30 @@ class ReservationsController < ApplicationController
     end
   end
 
-    # def create flashこっちじゃないか？
-  #   @reservation = current_user.reservations.build(reservation_params)
-  #   @reservation.save
-  #   flash[:notice] = "お部屋の予約が完了しました"
-  #   redirect_to "/reservations/#{@reservation.id}/show"
+  # def create  こっちのalertぶん使うから置いといて
+  #   else
+  #     redirect_to "/rooms/#{@reservation.room.id}/show"
+  #     # redirect_to "/reservations/#{@reservation.id}/confirmation"
+  #     # flash[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today + 1
+  #     # flash[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date
+  #   end
   # end
+#####################################################################
 
+  def show
+    @reservation = Reservation.find(params[:id])
+  end
+
+  def new
+    @reservation = current_user.reservations.build  #1対多の為、build
+  end
+
+  def create #validで値が正常なのしかこないからaletいらないよね？
+    @reservation = current_user.reservations.build(reservation_params)
+    @reservation.save
+    flash[:notice] = "お部屋の予約が完了しました"
+    redirect_to "/reservations/#{@reservation.id}/show"
+  end
 
 #####################################################################
 

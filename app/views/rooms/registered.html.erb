@@ -5,7 +5,7 @@
   <h3><%= link_to "早速ルームを登録する！", "/rooms/new", class: "app-intro-btn" %></h3>
 <% else %>
   <h1 class="page-title">登録済みルーム一覧</h1>
-  <h2 class="room-counter">登録したルームは<%= @regi_rooms %>部屋です。</h2>
+  <h2 class="room-counter"><%= @user.full_name %>さんが登録したルームは<strong class="emphasis"><%= @regi_rooms %></strong>部屋、全ユーザーが登録したルーム数は<strong class="emphasis"><%= @total_rooms %></strong>部屋です。</h2>
     <table class="room-table">
       <div class="room-regi-container">
         <thead>
