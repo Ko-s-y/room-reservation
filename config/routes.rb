@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post 'reservations/confirmation', to: 'reservations#confirm'
   post 'room/:id/show', to: 'reservations#confirm'
-  post 'reservations/confirmation', to: 'reservations#create'
+  post 'reservations/:id/confirmation', to: 'reservations#create'
 
   # post 'reservations/new', to:  'reservations#create' これは確認フォーム通らん
   get 'reservations/show', to: 'reservations#show'

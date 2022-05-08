@@ -26,7 +26,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.create(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
     binding.pry
-    render template: "rooms/show" if @reserevation.invalid?
+    if @reserevation.invalid?
+      render template: "rooms/show"
+    else
+      redirect_to "reservations/#{@reservation.id}/confirm"
+    end
   end
 
   def create #valid?で値が正常なのしかこないならこっちaletいらないか
