@@ -1,15 +1,16 @@
 <h1 class="page-title">予約確認フォーム</h1>
 
-<%= @room.id %><p>部屋ID</p>
-<%= @user.id %><p>ユーザーID</p>
+<%= @reservation.room_id %><p>部屋ID</p>
+<%= @reservation.user_id %><p>ユーザーID</p>
 <%= @reservation.id %><p>予約ID</p>
 
 <div class="reserve-container">
   <div class="room-form-title">予約最終確認</div>
 
 
-    <%= form_with url: new_reservation_path, method: :post do |f| %>
+    <%# <%= form_with url: new_reservation_path, method: :post do |f| %> %>
     <%# <%= form_with(model: @reservation, method: :post, local: true) do |f| %> %>
+    <%= form_for @reservation, url: reservations_path do |f| %>
 
 
       <%= f.hidden_field :user_id, value: current_user.id %>
@@ -18,6 +19,7 @@
       <%= f.hidden_field :people_number, value: @reservation.people_number %>
       <%= f.hidden_field :start_date, value: @reservation.start_date %>
       <%= f.hidden_field :end_date, value: @reservation.end_date %>
+      <%= f.hidden_field :price, value: @room.price %>
       <div class="field">
         <span><%= f.label :start_date ,"チェックイン日時", class: "reserve-element" %></span>
         <span><%= @reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
@@ -40,4 +42,3 @@
     <% end %>
   </div>
 </div>
-

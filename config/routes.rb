@@ -8,15 +8,13 @@ Rails.application.routes.draw do
 ################################################################
 
 
-
-  #  post 'reservations/new', to: 'reservations#confirm'
-  #  post 'reservations/confirm', to: 'reservations#create'
-  #post 'reservations/new' => 'reservations#confirm'
-  #post 'reservations/confirmation' => 'reservations#create'
-  post 'room/:id/show', to: 'reservations#confirm'
   post 'reservations/confirmation', to: 'reservations#confirm'
-  post 'reservations/new', to:  'reservations#create'
+  post 'room/:id/show', to: 'reservations#confirm'
+  post 'reservations/confirmation', to: 'reservations#create'
 
+  # post 'reservations/new', to:  'reservations#create' これは確認フォーム通らん
+  get 'reservations/show', to: 'reservations#show'
+  patch 'reservations', to: 'reservations#create' #とりあえず
 
 
 ################################################################
@@ -33,9 +31,6 @@ Rails.application.routes.draw do
   get '/rooms/:id/show', to: 'rooms#show'
   get '/rooms/registered', to: 'rooms#registered'
   get '/rooms/index', to: 'rooms#index'
-
-
-  # post '/reservations/new', to: 'reservations#create'
 
   get '/reservations/confirmation', to: 'reservations#confirmation'
 
