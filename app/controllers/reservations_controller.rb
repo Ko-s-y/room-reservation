@@ -20,6 +20,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     # @reservation = current_user.reservations.build(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
+    binding.pry
     if @reservation.save
       binding.pry
       flash[:notice] = "お部屋の予約が完了しました"
