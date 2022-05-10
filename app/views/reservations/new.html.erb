@@ -5,15 +5,11 @@
 
 <div class="reserve-container">
   <div class="room-form-title">予約最終確認</div>
-
   <% day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i %>
-
-  <%= day_count %>
 
   <%= form_with model: @reservation, class: 'room-show-formwith' do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.hidden_field :total_price, value: @total_price %>
       <%= f.hidden_field :people_number, value: @reservation.people_number %>
       <%= f.hidden_field :start_date, value: @reservation.start_date %>
       <%= f.hidden_field :end_date, value: @reservation.end_date %>
@@ -31,8 +27,17 @@
         <span><%= @reservation.people_number %></td>
       </div>
       <div class="field">
+        <span><%= f.label :price ,"1泊料金", class: "reserve-element" %></th>
+        <span><%= @reservation.price %></td>
+      </div>
+      <div class="field">
+        <span>宿泊日数</th>
+        <span><%= day_count %>泊<%= day_count + 1 %>日</td>
+      </div>
+      <div class="field">
         <span><%= f.label :people_number ,"合計金額", class: "reserve-element" %></th>
-        <span><%= @reservation.total_price %></td>
+        <span><%= @reservation.total_price * day_count * @reservation.people_number %></td>
+        <%= f.hidden_field :total_price, value: @reservation.total_price * day_count * @reservation.people_number %>
       </div>
       <p class="small-str">*こちらの内容でよろしければ「予約を確定する」ボタンをを押してください</p>
       <div><%= f.submit "予約を確定する", class: "submit-btn reserve-btn" %></div>

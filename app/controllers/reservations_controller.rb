@@ -2,16 +2,6 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :passer
 
-  # before_action :evaluate, only: [:show, :confirmation]
-
-  # def evaluate
-  #   check_in = @reservation.start_date.strftime('%m%d')
-  #   check_out = @reservation.end_date.strftime('%m%d')
-  #   @night_count = @check_out.to_i - @check_in.to_i
-  #   @day_count = @night_count + 1
-  #   @total_price = @room.price * @night_count
-  # end
-
   def index
     @reservations = @user.reservations
     @reserve_counter = @reservations.count
@@ -22,7 +12,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
     render template: "rooms/show" if @reservation.invalid?
-    # binding.pry
+    binding.pry
   end
 
   def create
@@ -43,7 +33,6 @@ class ReservationsController < ApplicationController
   end
 
   # def create   ここのalert残して置いて！！
-  #   @reservation = current_user.reservations.build(reservation_params)
   #   else
   #     # redirect_to "/rooms/#{@reservation.room.id}/show"
   #     redirect_to "/reservations/#{@reservation.id}/confirmation"

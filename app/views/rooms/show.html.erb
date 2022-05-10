@@ -42,7 +42,7 @@
     <%= form_with url: new_reservation_path, method: :post, class: 'room-show-formwith' do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.hidden_field :total_price, value: 1 %>
+      <%= f.hidden_field :total_price, value: @room.price %> <%# ここで@reservation.total_price = @room.price %>
       <%= f.hidden_field :price, value: @room.price %>
       <div class="field">
         <span><%= f.label :start_date ,"チェックイン日時(必須)", class: "reserve-element" %></span>
