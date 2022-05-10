@@ -27,7 +27,6 @@ class ReservationsController < ApplicationController
       redirect_to "/reservations/#{@reservation.id}/show"
     else
       binding.pry
-      @user = User.find_by(id: current_user.id)
       flash.now[:alert] = "予約できませんでした"
       render "rooms/show"
     end
