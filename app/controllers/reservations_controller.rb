@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.create(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
     binding.pry
-    if @reserevation.invalid?
+    if @reservation.invalid?
       render template: "rooms/show"
     else
       redirect_to "reservations/#{@reservation.id}/confirm"
