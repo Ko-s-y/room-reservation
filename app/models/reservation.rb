@@ -9,7 +9,7 @@ class Reservation < ApplicationRecord
 
   def check_start
     return if start_date.blank?
-    errors.add(:start_date, "は明日以降で選択してください") if start_date < Date.today + 1
+    errors.add(:start_date, "は明日以降で選択してください") if start_date < Date.today
   end
 
   def check_date

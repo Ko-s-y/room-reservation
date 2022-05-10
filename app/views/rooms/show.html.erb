@@ -31,32 +31,30 @@
         <td><%= @room.description %></td>
       </tr>
     </table>
-    <div><%= link_to "ルームを削除する", @room, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "danger-btn btn-op btn-sub" %></div>
-    <div><%= link_to "戻る", :back, class: "room-link-btn sub-op" %></div>
+    <div><%= link_to "戻る", :back, class: "room-link-btn" %></div>
   </div>
 </div>
 
 <div class="reserve-container">
   <div class="room-form-title">ルーム予約</div>
-
     <%= form_with url: new_reservation_path, method: :post, class: 'room-show-formwith' do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.hidden_field :total_price, value: @room.price %> <%# ここで@reservation.total_price = @room.price %>
+      <%= f.hidden_field :total_price, value: @room.price %> <%# ここで@reservation.total_price = @room.priceとしておく %>
       <%= f.hidden_field :price, value: @room.price %>
       <div class="field">
-        <span><%= f.label :start_date ,"チェックイン日時(必須)", class: "reserve-element" %></span>
-        <span><%= f.datetime_field :start_date, class: "reserve-element-form", required: true  %></span>
+        <span><%= f.label :start_date ,"チェックイン日時(必須,明日以降)", class: "reserve-element" %></span>
+        <span><%= f.datetime_field :start_date, class: "reserve-element-form", required: true, value: Time.current.strftime('%Y-%m-%dT00:00:00') %></span>
       </div>
       <div class="field">
         <th><%= f.label :end_date ,"チェックアウト日時(必須)", class: "reserve-element" %></th>
-        <td><%= f.datetime_field :end_date, class: "reserve-element-form", required: true %></td>
+        <td><%= f.datetime_field :end_date, class: "reserve-element-form", required: true, value: Time.current.strftime('%Y-%m-%dT00:00:00') %></td>
       </div>
       <div class="field">
         <th><%= f.label :people_number ,"人数(必須,8名まで)", class: "reserve-element" %></th>
         <td><%= f.number_field :people_number, class: "reserve-element-form", required: true, in: 1..8 %></td>
       </div>
-      <div class="field"><%= f.submit "予約する", class: "submit-btn reserve-btn" %></div>
+      <div class="field"><%= f.submit "予約する", class: "submit-btn reserve-btn btm" %></div>
     <% end %>
   </div>
 </div>

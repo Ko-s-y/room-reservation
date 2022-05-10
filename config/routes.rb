@@ -22,6 +22,5 @@ Rails.application.routes.draw do
   post 'reservations/create', to: 'reservations#create'
   get 'reservations/:id/show', to: 'reservations#show'
 
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

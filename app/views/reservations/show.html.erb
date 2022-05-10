@@ -1,8 +1,8 @@
 <h1 class="page-title">予約確認ページ</h1>
-<div class="reserve-container">
+<div class="reserve-container reserve-element">
   <div class="room-form-title">予約済み</div>
     <div class="field">
-      <span class="reserve-element">予約ID</span>
+      <span class="reserve-element">予約番号</span>
       <span><%= @reservation.id %></span>
     </div>
     <div class="field">
@@ -10,7 +10,7 @@
       <span><%= @reservation.room.room_name %></span>
     </div>
     <div class="field">
-      <span class="reserve-element">住所</span>
+      <span class="reserve-element">宿泊先住所</span>
       <span><%= @reservation.room.address %></span>
     </div>
     <div class="field">
@@ -21,25 +21,29 @@
       <span class="reserve-element">チェックアウト日時</span>
       <span><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
     </div>
-
     <div class="field">
-      <span class="reserve-element">人数</span>
+      <span class="reserve-element">宿泊日数</th>
+      <% day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i %>
+      <span class="reserve-element"><%= day_count %>泊<%= day_count + 1 %>日</td>
+    </div>
+    <div class="field">
+      <span class="reserve-element">ご利用人数</span>
       <span><%= @reservation.people_number %></span>
     </div>
     <div class="field">
       <span class="reserve-element">一泊料金</span>
-      <span><%= @reservation.room.price %></span>
+      <span><%= @reservation.room.price %>円</span>
     </div>
     <div class="field">
       <span class="reserve-element">合計金額</span>
-      <span><%= @reservation.total_price %></span>
+      <span><%= @reservation.total_price %>円</span>
     </div>
     <div class="field">
       <span class="reserve-element">予約確定日時</span>
       <span><%= @reservation.created_at.to_s(:datetime_jp) %></span>
     </div>
     <div class="field">
-      <%= link_to "予約一覧ページへ", "/reservations", class: "submit-btn btn-sub btn-op" %>
+      <%= link_to "予約一覧ページへ", "/reservations", class: "submit-btn btn-sub btn-op btm" %>
     </div>
   </div>
 </div>
