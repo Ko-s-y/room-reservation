@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :passer, except: [:confirm]
+  before_action :passer
 
   # before_action :evaluate, only: [:show, :confirmation]
 
@@ -17,46 +17,45 @@ class ReservationsController < ApplicationController
     @reserve_counter = @reservations.count
   end
 
-####################################################################
-
-
-
-  def confirm
+  def new
     @user = current_user
-    @reservation = Reservation.create(reservation_params)
+    @reservation = Reservation.new(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
-    binding.pry
-    if @reservation.invalid?
-      render template: "rooms/show"
-    else
-      redirect_to "reservations/#{@reservation.id}/confirm"
-    end
+    render template: "rooms/show" if @reservation.invalid?
+    # binding.pry
   end
 
-  def create #valid?で値が正常なのしかこないならこっちaletいらないか
-    @reservation = current_user.reservations.build(reservation_params)
+  def create
+    binding.pry
+    @reservation = Reservation.new(reservation_params)
+    # @reservation = current_user.reservations.build(reservation_params)
+    @room = Room.find_by(id: @reservation.room_id)
     if @reservation.save
+      binding.pry
       flash[:notice] = "お部屋の予約が完了しました"
       redirect_to "/reservations/#{@reservation.id}/show"
     else
-      # redirect_to "/rooms/#{@reservation.room.id}/show"
-      redirect_to "/reservations/#{@reservation.id}/confirmation"
-      # flash[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today + 1
-      # flash[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date
+      binding.pry
+      @user = User.find_by(id: current_user.id)
+      flash.now[:alert] = "予約できませんでした"
+      render "rooms/show"
     end
   end
 
-
-
+  # def create   ここのalert残して置いて！！
+  #   @reservation = current_user.reservations.build(reservation_params)
+  #   else
+  #     # redirect_to "/rooms/#{@reservation.room.id}/show"
+  #     redirect_to "/reservations/#{@reservation.id}/confirmation"
+  #     # flash[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today + 1
+  #     # flash[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date
+  #   end
+  # end
 #####################################################################
 
   def show
     @reservation = Reservation.find(params[:id])
   end
-
-  # def #new　いらんかも
-  #   @reservation = current_user.reservations.build  #1対多の為、build
-  # end
 
   def destroy
     @reservation = Reservation.find(params[:id])
