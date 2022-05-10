@@ -12,21 +12,23 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
     render template: "rooms/show" if @reservation.invalid?
-    binding.pry
+    # binding.pry
   end
 
   def create
-    binding.pry
+    # binding.pry
     @reservation = Reservation.new(reservation_params)
     # @reservation = current_user.reservations.build(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
-    binding.pry
+    # binding.pry
     if @reservation.save
-      binding.pry
+      # binding.pry
       flash[:notice] = "お部屋の予約が完了しました"
       redirect_to "/reservations/#{@reservation.id}/show"
     else
-      binding.pry
+      @reservation.save
+      # binding.pry
+
       flash.now[:alert] = "予約できませんでした"
       render "rooms/show"
     end

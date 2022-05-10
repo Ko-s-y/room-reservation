@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :reservations
   post 'reservations/new', to: 'reservations#new'
+  post 'reservations/create', to: 'reservations#create'
   get 'reservations/:id/show', to: 'reservations#show'
 
 

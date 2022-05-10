@@ -5,9 +5,8 @@
 
 <div class="reserve-container">
   <div class="room-form-title">予約最終確認</div>
-  <% day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i %>
-
-  <%= form_with model: @reservation, class: 'room-show-formwith' do |f| %>
+    <% day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i %>
+    <%= form_with url: reservations_create_path, method: :post do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.hidden_field :people_number, value: @reservation.people_number %>
