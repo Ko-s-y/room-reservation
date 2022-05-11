@@ -13,17 +13,13 @@
     width: 40%;
   }
 
-  footer {
-    position: relative;
-    min-height: 70vh;
+  .form-search {
+    width: 80%;
   }
+
 }
 
 @media (max-width: 670px) {
-
-  .nav-search {
-    display: none;
-  }
 
   .img-flex {
     flex-direction: column;
@@ -34,7 +30,4 @@
     width: 90%;
   }
 
-  footer {
-    min-height: 110vh;
-  }
 }

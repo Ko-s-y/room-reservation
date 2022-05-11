@@ -14,9 +14,9 @@
 .form-search {
   margin-left: 50px;
   position: relative;
-  top: 200px;
+  top: 230px;
   background-color: white;
-  width: 450px;
+  width: 45%;
   height: 250px;
   border-radius: 5%;
 }
@@ -27,6 +27,7 @@
   width: 90%;
   height: 40px;
   cursor: pointer;
+  margin-left: 25px;
 }
 
 .home-search input {
@@ -46,24 +47,28 @@
 .home-search {
   padding-top: 30px;
   padding-left: 30px;
+  margin-left: 25px;
 }
 
 .home-aria-search {
   width: 90%;
   height: 40px;
   padding-left: 10px;
+  margin-left: 25px;
+  margin-bottom: 10px;
 }
 
 // セカンドビュー
 .second-text {
-  margin: 30px 40px;
+  margin-top: 40px;
+  margin-left: 90px;
   font-weight: bold;
-  font-size: large;
+  font-size: 25px;
 }
 
 .img-flex {
   list-style: none;
-  margin: 20px;
+  margin: 15px;
   padding: 60px 0px;
   text-align: center;
   display: flex;
