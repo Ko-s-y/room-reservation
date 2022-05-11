@@ -8,8 +8,10 @@
         </div>
         <form class="home-search">
           <p>エリア</p>
-          <input type="search" placeholder="東京" class="home-aria-search">
-          <input type="submit" value="探す" class="home-search-btn">
+          <%= search_form_for @search, url:  rooms_index_url do |f| %>
+            <%= f.search_field :address_cont, placeholder: "エリア", class: "home-aria-search" %>
+            <%= f.submit "探す！", class: "home-search-btn" %>
+          <% end %>
         </form>
       </div>
     </div>
@@ -20,10 +22,10 @@
     <div class="second-container">
       <div class="recommended-aria">
         <ul class="img-flex">
-          <li class="aria-list"><a href="/" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"><span class="aria-name">東京</span></a></li>
-          <li class="aria-list"><a href="/" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"><span class="aria-name">大阪</span></a></li>
-          <li class="aria-list"><a href="/" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg"><span class="aria-name">京都</span></a></li>
-          <li class="aria-list"><a href="/" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg"><span class="aria-name">札幌</span></a></li>
+          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E6%9D%B1%E4%BA%AC" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"><span class="aria-name">東京</span></a></li>
+          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E5%A4%A7%E9%98%AA" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"><span class="aria-name">大阪</span></a></li>
+          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E4%BA%AC%E9%83%BD" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg"><span class="aria-name">京都</span></a></li>
+          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E6%9C%AD%E5%B9%8C" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg"><span class="aria-name">札幌</span></a></li>
         </ul>
       </div>
     </div>

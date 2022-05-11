@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :passer, except: [:show]
 
   def index
-    # @rooms = Room.all
+    @result_count = @rooms.count
   end
 
   def registered

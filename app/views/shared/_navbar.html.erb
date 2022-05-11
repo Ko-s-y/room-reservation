@@ -5,8 +5,12 @@
     <a class="navbar-item" href="/">
       <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトロゴ">
     </a>
-    <input type="search" placeholder="エリア" class="nav-search">
-    <input type="search" placeholder="キーワード" class="nav-search">
+    <%= search_form_for @search do |f| %>  <%# @room.addressで検索 %>
+      <%= f.search_field :address_cont, placeholder: "エリアで検索！", class: "nav-search" %>
+    <% end %>
+    <%= search_form_for @search do |f| %>  <%# room_name || description で検索 %>
+      <%= f.search_field :room_name_or_description_cont, placeholder: "キーワードで検索！", class: "nav-search" %>
+    <% end %>
   </div>
 
 <!-- headerの右側 -->
