@@ -10,28 +10,28 @@
       <%= f.hidden_field :end_date, value: @reservation.end_date %>
       <%= f.hidden_field :price, value: @room.price %>
       <div class="field">
-        <span><%= f.label :start_date ,"チェックイン日時", class: "reserve-element" %></span>
-        <span><%= @reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
+        <span class="reserve-element"><%= f.label :start_date ,"チェックイン日時" %></span>
+        <span class="reserve-element"><%= @reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
       </div>
       <div class="field">
-        <span><%= f.label :end_date ,"チェックアウト日時", class: "reserve-element" %></th>
-        <span><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
+        <span class="reserve-element"><%= f.label :end_date ,"チェックアウト日時" %></th>
+        <span class="reserve-element"><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
       </div>
       <div class="field">
-        <span><%= f.label :people_number ,"ご利用人数", class: "reserve-element" %></th>
-        <span><%= @reservation.people_number %></td>
+        <span class="reserve-element"><%= f.label :people_number ,"ご利用人数" %></th>
+        <span class="reserve-element"><%= @reservation.people_number %>名</td>
       </div>
       <div class="field">
-        <span><%= f.label :price ,"1泊料金", class: "reserve-element" %></th>
-        <span><%= @reservation.price %></td>
+        <span class="reserve-element"><%= f.label :price ,"1泊料金" %></th>
+        <span class="reserve-element"><%= @reservation.price %>円</td>
       </div>
       <div class="field">
-        <span>宿泊日数</th>
-        <span><%= day_count %>泊<%= day_count + 1 %>日</td>
+        <span class="reserve-element">宿泊日数</th>
+        <span class="reserve-element"><%= day_count %>泊<%= day_count + 1 %>日</td>
       </div>
       <div class="field">
-        <span><%= f.label :people_number ,"合計金額", class: "reserve-element" %></th>
-        <span><%= @reservation.total_price * day_count * @reservation.people_number %></td>
+        <span class="reserve-element"><%= f.label :people_number ,"合計金額" %></th>
+        <span class="reserve-element"><%= @reservation.total_price * day_count * @reservation.people_number %>円</td>
         <%= f.hidden_field :total_price, value: @reservation.total_price * day_count * @reservation.people_number %>
       </div>
       <p class="small-str">*こちらの内容でよろしければ「予約を確定する」ボタンをを押してください</p>
