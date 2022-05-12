@@ -19,7 +19,7 @@
 
 }
 
-@media (max-width: 670px) {
+@media (max-width: 740px) {
 
   .img-flex {
     flex-direction: column;
@@ -28,6 +28,10 @@
   .img-flex li {
     margin: 0 auto;
     width: 90%;
+  }
+
+  .room-regi, .table-title, .room-counter {
+    display: none;
   }
 
 }

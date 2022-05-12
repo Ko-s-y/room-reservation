@@ -1,6 +1,6 @@
 <% if @regi_rooms == 0 %>
   <div class="intro-container">
-    <h1 class="app-intro"><%= @user.full_name %>さんもご自慢のお部屋を登録して</br>素敵なシェアライフを！</h1>
+    <h1 class="app-intro"><%= @user.full_name %>さんもご自慢のお部屋を登録して</br>素敵なシェアライフを楽しみましょう！</h1>
   </div>
   <h3><%= link_to "早速ルームを登録する！", "/rooms/new", class: "app-intro-btn" %></h3>
 <% else %>
@@ -10,7 +10,7 @@
       <div class="room-regi-container">
         <thead>
           <tr>
-            <th>ルーム画像</th>
+            <th class="table-title">ルーム画像</th>
             <th>ルーム名</th>
             <th>住所</th>
             <th>ルーム紹介</th>
@@ -21,7 +21,7 @@
         <tbody>
           <% @rooms.each do |room| %>
             <tr>
-              <td><a href =<%= "/rooms/#{room.id}/show" %>><%= image_tag avatar_url(room), class: "room-regi" %></a></td>
+              <td class="room-regi"><a href =<%= "/rooms/#{room.id}/show" %>><%= image_tag avatar_url(room), class: "room-regi" %></a></td>
               <td><%= link_to room.room_name, "/rooms/#{room.id}/show" %></td>
               <td><%= room.address %></td>
               <td><%= room.description %></td>
@@ -32,5 +32,5 @@
         </tbody>
       </div>
     </table>
-  <h3><%= link_to "ルーム新規登録", "/rooms/new", class: "submit-btn btn-sub btn-op" %></h3>
+  <h3><%= link_to "ルーム新規登録", new_room_path, class: "submit-btn btn-sub btn-op" %></h3>
 <% end %>

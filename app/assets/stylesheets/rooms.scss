@@ -98,8 +98,10 @@ textarea {
 }
 
 .room-regi {
-  width: 180px;
-  height: 120px;
+  width: 250px;
+  height: 150px;
+  /*table-layoutの指定*/
+	table-layout: fixed;
 }
 
 .room-show {
@@ -170,5 +172,14 @@ textarea {
   height: 80px;
   text-align: center;
   padding-top: 11px;
+  font-size: large;
+}
+
+.result-counter {
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
   font-size: large;
 }

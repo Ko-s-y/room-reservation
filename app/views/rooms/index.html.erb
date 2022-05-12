@@ -3,12 +3,12 @@
   <h1 class="sorry-counter"><strong class="emphasis">条件にヒットするルームが見つかりませんでした。<br>条件を変えて再度検索してみてください。</strong></h1>
   <h3><%= link_to "トップページへ", "/", class: "submit-btn btn-sub btn-op top" %></h3>
 <% else %>
-  <h2 class="room-counter"><strong class="emphasis"><%= @result_count %></strong>件ヒットしました。</h2>
+  <h2 class="result-counter"><strong class="emphasis"><%= @result_count %></strong>件ヒットしました。</h2>
   <table class="room-table">
     <div class="room-regi-container">
       <thead>
         <tr>
-          <th>ルーム画像</th>
+          <th class="table-title">ルーム画像</th>
           <th>ルーム名</th>
           <th>住所</th>
           <th>ルーム紹介</th>
@@ -19,7 +19,7 @@
       <tbody>
         <% @rooms.each do |room| %>
           <tr>
-            <td><a href =<%= "/rooms/#{room.id}/show" %>><%= image_tag avatar_url(room), class: "room-regi" %></a></td>
+            <td class="room-regi"><a href =<%= "/rooms/#{room.id}/show" %>><%= image_tag avatar_url(room), class: "room-regi" %></a></td>
             <td><%= link_to room.room_name, "/rooms/#{room.id}/show" %></td>
             <td><%= room.address %></td>
             <td><%= room.description %></td>

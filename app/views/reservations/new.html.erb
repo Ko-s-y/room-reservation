@@ -18,16 +18,16 @@
         <span class="reserve-element"><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
       </div>
       <div class="field">
+        <span class="reserve-element">宿泊日数</th>
+        <span class="reserve-element"><%= day_count %>泊<%= day_count + 1 %>日</td>
+      </div>
+      <div class="field">
         <span class="reserve-element"><%= f.label :people_number ,"ご利用人数" %></th>
         <span class="reserve-element"><%= @reservation.people_number %>名</td>
       </div>
       <div class="field">
         <span class="reserve-element"><%= f.label :price ,"1泊料金" %></th>
         <span class="reserve-element"><%= @reservation.price %>円</td>
-      </div>
-      <div class="field">
-        <span class="reserve-element">宿泊日数</th>
-        <span class="reserve-element"><%= day_count %>泊<%= day_count + 1 %>日</td>
       </div>
       <div class="field">
         <span class="reserve-element"><%= f.label :people_number ,"合計金額" %></th>

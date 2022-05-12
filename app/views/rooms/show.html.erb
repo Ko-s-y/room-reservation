@@ -2,31 +2,31 @@
 <div class="room-container">
   <div class="room-form-title">ルーム情報詳細</div>
     <table class="form-table">
-      <tr>
+      <tr class="room-element">
         <th>ルーム番号</th>
         <td><%= @room.id %></td>
       </tr>
-      <tr>
+      <tr class="room-element">
         <th>ルーム名</th>
         <td><%= @room.room_name %></td>
       </tr>
-      <tr>
+      <tr class="room-element">
         <th>住所</th>
         <td><%= @room.address %></td>
       </tr>
-      <tr>
+      <tr class="room-element">
         <th>１泊当たりの価格</th>
         <td><%= @room.price %>円</td>
       </tr>
-      <tr>
+      <tr class="room-element">
         <th>イメージ画像</th>
         <td><%= image_tag avatar_url(@room), class: "room-show" %></td>
       </tr>
-      <tr>
+      <tr class="room-element">
         <th>登録ユーザーのID(確認用)</th>
         <td><%= @room.user_id %></td>
       </tr>
-      <tr>
+      <tr class="room-element">
         <th>詳細</th>
         <td><%= @room.description %></td>
       </tr>

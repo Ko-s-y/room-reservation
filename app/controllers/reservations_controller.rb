@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     #   redirect_to "/"
     # else
       flash.now[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today
-      flash.now[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date
+      flash.now[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date + 1
       render template: "rooms/show" if @reservation.invalid?
     # end
   end
