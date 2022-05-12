@@ -25,19 +25,15 @@
 
   <!-- ログイン中の場合　-->
   <% else %>
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="targetMenu">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="targetMenu">
+      <%= image_tag avatar_url(current_user), class: "navi-icon", alt: "メニュー" %>
+    </a>
     <div id="targetMenu" class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="dropdown-menu navbar-item nav-name is-hidden-mobile">
+              <a class="dropdown-menu navbar-item nav-name is-hidden-mobile  is-hidden-tablet-only">
                 <%= current_user.full_name %>
               </a>
               <div class="navbar-dropdown">
@@ -52,7 +48,7 @@
             </div>
           </div>
         </div>
-        <span><%= image_tag avatar_url(current_user), class: "nav-icon is-hidden-mobile", alt: "ユーザーアイコン" %></span>
+        <span><%= image_tag avatar_url(current_user), class: "nav-icon navbar-menu", alt: "ユーザーアイコン" %></span>
       </div>
     </div>
   <% end %>
@@ -60,14 +56,14 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const $navbarBurgers = document.querySelectorAll('.navbar-burger');  //  バーガーメニューの要素を取得
-    if ($navbarBurgers.length > 0) {  // ナビゲーションバーガーがあるかどうかを確認
+    const $navbarBurgers = document.querySelectorAll('.navbar-burger');  // アイコンメニュー要素を取得
+    if ($navbarBurgers.length > 0) {  //　メニューアイコンがあるかどうかを確認
       $navbarBurgers.forEach( el => {
         el.addEventListener('click', () => {
           const target = el.dataset.target;
           const $target = document.getElementById(target);
-          el.classList.toggle('is-active');  //  バーガーメニューでis-activeクラスを切り替え
-          $target.classList.toggle('is-active');  //  メニューでis-activeクラスを切り替え
+          el.classList.toggle('is-active');  // is-activeクラスを切り替え
+          $target.classList.toggle('is-active');  // is-activeクラスを切り替え
         });
       });
     }
