@@ -1,8 +1,8 @@
 <% if @regi_rooms == 0 %>
   <div class="intro-container">
-    <h1 class="app-intro"><%= @user.full_name %>さんもご自慢のお部屋を登録して</br>素敵なシェアライフを楽しみましょう！</h1>
+    <h1 class="app-intro"><%= @user.full_name %>さんも自慢のお部屋を登録して</br>素敵なシェアライフを楽しみましょう！</h1>
   </div>
-  <h3><%= link_to "早速ルームを登録する！", "/rooms/new", class: "app-intro-btn" %></h3>
+  <h3><%= link_to "早速ルームを登録してみる！", "/rooms/new", class: "app-intro-btn" %></h3>
 <% else %>
   <h1 class="page-title">登録済みルーム一覧</h1>
   <h2 class="room-counter"><%= @user.full_name %>さんが登録したルームは<strong class="emphasis"><%= @regi_rooms %></strong>部屋、全ユーザーが登録したルーム数は<strong class="emphasis"><%= @total_rooms %></strong>部屋です。</h2>
@@ -32,5 +32,5 @@
         </tbody>
       </div>
     </table>
-  <h3><%= link_to "ルーム新規登録", new_room_path, class: "submit-btn btn-sub btn-op" %></h3>
+  <h3><%= link_to "ルーム新規登録", new_room_path, class: "submit-btn btn-sub btn-op btm" %></h3>
 <% end %>

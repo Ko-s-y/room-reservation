@@ -16,7 +16,7 @@ module ApplicationHelper
     elsif room.image?
         room.image
     else
-        ActionController::Base.helpers.asset_path('sample.jpg')
+        ActionController::Base.helpers.asset_path('icon_default_avatar.jpg') #ここまで行かない
     end
   end
 

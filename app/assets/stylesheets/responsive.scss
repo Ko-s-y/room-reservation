@@ -17,6 +17,11 @@
     width: 80%;
   }
 
+  footer {
+    position: absolute;
+    bottom: -300px;
+  }
+
 }
 
 @media (max-width: 740px) {
@@ -32,6 +37,10 @@
 
   .room-regi, .table-title, .room-counter {
     display: none;
+  }
+
+  footer {
+    bottom: -900px;
   }
 
 }

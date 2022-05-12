@@ -1,4 +1,4 @@
-<h1 class="page-title">検索結果</h1>
+<h1 class="page-title">検索結果一覧</h1>
 <% if @result_count == 0 %>
   <h1 class="sorry-counter"><strong class="emphasis">条件にヒットするルームが見つかりませんでした。<br>条件を変えて再度検索してみてください。</strong></h1>
   <h3><%= link_to "トップページへ", "/", class: "submit-btn btn-sub btn-op top" %></h3>
@@ -30,5 +30,5 @@
       </tbody>
     </div>
   </table>
-  <h3><%= link_to "トップページへ", "/", class: "submit-btn btn-sub btn-op" %></h3>
+  <h3><%= link_to "トップページへ", "/", class: "submit-btn btn-sub btn-op btm" %></h3>
 <% end %>
