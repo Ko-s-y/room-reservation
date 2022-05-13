@@ -10,6 +10,8 @@ class ReservationsController < ApplicationController
   def new  #rooms/showより新規予約
     @reservation = Reservation.new(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
+    @day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i
+    @total_price = @reservation.total_price * @day_count * @reservation.people_number  #この時@reservation.total_priceには@room.priceの値が入っている
     if @reservation.invalid?
       flash.now[:alert] = @reservation.errors.full_messages[0]
       render template: "rooms/show"
@@ -30,6 +32,7 @@ class ReservationsController < ApplicationController
 
   def show  #予約確認画面
     @reservation = Reservation.find(params[:id])
+    @day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i
   end
 
   def destroy  #予約取消

@@ -19,10 +19,6 @@
   <% end %>
 
   <div class="field user-element">
-    <span>アカウント名</span>
-    <span><%= @user.full_name %></span>
-  </div>
-  <div class="field user-element">
     <span>自己紹介</span>
     <span><%= @user.introduction %></span>
     <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post do |f| %>

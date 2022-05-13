@@ -23,8 +23,7 @@
     </div>
     <div class="field">
       <span class="reserve-element">宿泊日数</th>
-      <% day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i %>
-      <span class="reserve-element"><%= day_count %>泊<%= day_count + 1 %>日</td>
+      <span class="reserve-element"><%= @day_count %>泊<%= @day_count + 1 %>日</td>
     </div>
     <div class="field">
       <span class="reserve-element">ご利用人数</span>
@@ -49,3 +48,4 @@
     </div>
   </div>
 </div>
+<div class="btm"></div>

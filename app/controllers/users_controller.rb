@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     def update
       if @user.update(user_params)
-        flash[:notice] = "アカウント情報を更新しました"
+        flash[:notice] = "アカウントが更新されました"
       else
         flash.now[:alert] = "更新に失敗しました"
       end
