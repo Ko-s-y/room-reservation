@@ -10,24 +10,16 @@ class ReservationsController < ApplicationController
   def new  #rooms/showより新規予約
     @reservation = Reservation.new(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
-    # if @user == @room.user
-    #   flash[:alert] = "オーナーが自分のルームを予約することはできません。"
-    #   redirect_to "/"
-    # else
-      flash.now[:alert] = "チェックイン日時は明日以降で選択してください" if @reservation.start_date < Date.today
-      flash.now[:alert] = "チェックアウト日時はチェックイン日時以降で選択してください" if @reservation.end_date < @reservation.start_date + 1
-      render template: "rooms/show" if @reservation.invalid?
-    # end
+    if @reservation.invalid?
+      flash.now[:alert] = @reservation.errors.full_messages[0]
+      render template: "rooms/show"
+    end
   end
 
   def create  #resevations/newの確認画面より予約作成
-    # binding.pry
     @reservation = Reservation.new(reservation_params)
-    # @reservation = current_user.reservations.build(reservation_params)
     @room = Room.find_by(id: @reservation.room_id)
-    # binding.pry
     if @reservation.save
-      # binding.pry
       flash[:notice] = "お部屋の予約が完了しました"
       redirect_to "/reservations/#{@reservation.id}/show"
     else
@@ -40,7 +32,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
-  def destroy
+  def destroy  #予約取消
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     flash[:notice] = "予約を取り消しました"

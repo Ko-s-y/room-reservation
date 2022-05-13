@@ -10,14 +10,4 @@ module ApplicationHelper
     end
   end
 
-  def avatar_url(room)
-    if room.avatar.attached?
-        url_for(room.avatar)
-    elsif room.image?
-        room.image
-    else
-        ActionController::Base.helpers.asset_path('icon_default_avatar.jpg') #ここまで行かない
-    end
-  end
-
 end

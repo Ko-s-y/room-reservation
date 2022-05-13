@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<div class="reserve-container">
+<div class="reserve-container height-add">
   <div class="room-form-title">ルーム予約<span class="small-str">(全欄必須)</span></div>
     <%= form_with url: new_reservation_path, method: :post, class: 'room-show-formwith' do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>

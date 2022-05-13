@@ -4,14 +4,14 @@
     <div class="form-container">
       <div class="form-search">
         <div class="form-title">
-          <h1>PoteShareでまだ体験したことのない旅をしよう!!!</h1>
+          <h1>Room Share Serviceでまだ見た事のない景色を見に行こう!!!</h1>
         </div>
         <form class="home-search">
           <p>エリア</p>
             <%= search_form_for @search, url:  rooms_index_url do |f| %>
             <% end %>
             <%= search_form_for @search, url:  rooms_index_url do |f| %>
-              <%= f.search_field :address_cont, placeholder: "エリア", class: "home-aria-search" %>
+              <%= f.search_field :address_cont, placeholder: "東京都", class: "home-aria-search" %>
               <%= f.submit "探す！", class: "home-search-btn" %>
             <% end %>
         </form>
@@ -24,10 +24,10 @@
     <div class="second-container">
       <div class="recommended-aria">
         <ul class="img-flex">
-          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E6%9D%B1%E4%BA%AC" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt="東京で検索"><span class="aria-name">東京</span></a></li>
-          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E5%A4%A7%E9%98%AA" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg" alt="大阪で検索"><span class="aria-name">大阪</span></a></li>
-          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E4%BA%AC%E9%83%BD" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg" alt="京都で検索"><span class="aria-name">京都</span></a></li>
-          <li class="aria-list"><a href="http://localhost:3000/rooms?q%5Baddress_cont%5D=%E6%9C%AD%E5%B9%8C" class="aria"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg" alt="札幌で検索"><span class="aria-name">札幌</span></a></li>
+          <li class="aria-list"><a href="/rooms?q%5Baddress_cont%5D=東京都" class="aria"><img src="https://www.be-en.co.jp/upload/save_image/M81-606.jpg" alt="東京都で検索"><span class="aria-name">東京</span></a></li>
+          <li class="aria-list"><a href="/rooms?q%5Baddress_cont%5D=大阪府" class="aria"><img src="https://www.img-ikyu.com/contents/dg/special/kankou/spot/3434_origin.jpg?auto=compress,format&fit=crop&w=600&h=530&lossless=0" alt="大阪府で検索"><span class="aria-name">大阪</span></a></li>
+          <li class="aria-list"><a href="/rooms?q%5Baddress_cont%5D=京都府" class="aria"><img src="https://newsatcl-pctr.c.yimg.jp/r/iwiz-amd/20220228-10015191-it_nlab-000-1-view.jpg?exp=10800" alt="京都府で検索"><span class="aria-name">京都</span></a></li>
+          <li class="aria-list"><a href="/rooms?q%5Baddress_cont%5D=札幌市" class="aria"><img src="https://www.city.sapporo.jp/city/mayor/smilenews/images/20181210_02smilenews.jpg" alt="札幌市で検索"><span class="aria-name">札幌</span></a></li>
         </ul>
       </div>
     </div>

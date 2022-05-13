@@ -8,15 +8,11 @@ class UsersController < ApplicationController
     def show
     end
 
-    def new
-      @user = User.new(user_params)
-    end
-
     def update
       if @user.update(user_params)
-        flash[:notice] = "更新しました"
+        flash[:notice] = "アカウント情報を更新しました"
       else
-        flash.now[:alert] = "更新出来ませんでした"
+        flash.now[:alert] = "更新に失敗しました"
       end
       render "info"
     end
