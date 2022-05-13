@@ -1,9 +1,8 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :passer
 
   def index  #ユーザー予約一覧
-    @reservations = @user.reservations
+    @reservations = current_user.reservations
     @reserve_counter = @reservations.count
   end
 
@@ -31,24 +30,18 @@ class ReservationsController < ApplicationController
   end
 
   def show  #予約確認画面
-    @reservation = Reservation.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])  #予約した人本人のみ閲覧可能
     @day_count = (@reservation.end_date.to_date - @reservation.start_date.to_date).to_i
   end
 
   def destroy  #予約取消
-    @reservation = Reservation.find(params[:id])
-    @reservation.destroy
+    reservation = current_user.reservations.find(params[:id])  #予約した本人のみ削除可能
+    reservation.destroy
     flash[:notice] = "予約を取り消しました"
     redirect_to "/reservations"
   end
 
   private
-
-  def passer
-    @user = current_user
-    @room = Room.find_by(params[:id])
-    @reservation = Reservation.find_by(params[:id])
-  end
 
   def reservation_params
     params.permit(:user_id, :room_id, :start_date, :end_date, :people_number, :total_price, :price)

@@ -5,7 +5,7 @@
     <a class="site-logo" href="/">
       <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトロゴ" class="site-logo">
     </a>
-    <%= search_form_for @search do |f| %>  <%# @room.addressで検索 %>
+    <%= search_form_for @search do |f| %>  <%# room.addressで検索 %>
       <%= f.search_field :address_cont, placeholder: "エリアで検索", class: "nav-search" %>
     <% end %>
     <%= search_form_for @search do |f| %>  <%# room_name || description で検索 %>

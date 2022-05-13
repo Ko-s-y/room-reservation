@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.reservations.each do |reservation| %>
+      <% current_user.reservations.each do |reservation| %>
         <tr>
           <td class="room-regi"><a href =<%= "/rooms/#{reservation.room.id}/show" %>><%= image_tag avatar_url(reservation.room), class: "room-regi" %></a></td>
           <td><%= link_to reservation.room.room_name, "/rooms/#{reservation.room.id}/show" %></td>
