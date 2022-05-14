@@ -4,7 +4,7 @@
 
 <div class="room-container">
   <div class="room-form-title">ルーム登録</div>
-    <%= form_for @room do |f| %>
+    <%= form_with model: @room do |f| %>
       <table class="form-table">
         <tr>
           <th><%= f.label :room_name ,"ルーム名(必須)", class: "room-element" %></th>
