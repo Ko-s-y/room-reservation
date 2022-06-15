@@ -1,0 +1,35 @@
+<h1 class="page-title">プロフィールページ</h1>
+
+<div class="user-container-show">
+  <h3 class="user-form-title">プロフィール</h3>
+
+  <div class="field">
+    <div class="icon-field top">
+      <% if @user.image? %>
+        <%= image_tag @user.image.url %>
+      <% else %>
+        <%= image_tag avatar_url(@user), class: "user-image", alt: "ユーザーアイコン" %>
+      <% end %>
+    </div>
+    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post do |f| %>
+      <div class="file">
+        <label class="button is-primary avatar-upload">
+          <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', class: "file-input", onchange: "this.form.submit();" %>
+          <i class="fas fa-upload"></i>アイコン画像の更新
+        </label>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field user-element top">
+    <p>自己紹介<span class="small-str">(50字以内)<span></p>
+    <p><%= @user.introduction %></p>
+    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post do |f| %>
+      <p><%= f.text_area :introduction, class: "intro-form" %></p>
+      <p><%= f.submit "自己紹介の更新", class: "button is-danger" %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <p><%= link_to "戻る", :back, class: "user-link-btn" %></p>
+  </div>
+</div>

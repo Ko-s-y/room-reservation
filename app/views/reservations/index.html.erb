@@ -1,0 +1,33 @@
+<h1 class="page-title">予約済みルーム一覧</h1>
+<h2 class="room-counter btm">予約件数は<strong class="emphasis"><%= @reserve_counter %></strong>件です</h2>
+<table class="room-table">
+  <div class="room-regi-container">
+    <thead>
+      <tr>
+        <th class="table-title">ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>予約人数</th>
+        <th>合計金額</th>
+        <th>チェックイン日</th>
+        <th>チェックアウト日</th>
+        <th>予約詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.reservations.each do |reservation| %>
+        <tr>
+          <td class="room-regi"><a href =<%= "/rooms/#{reservation.room.id}/show" %>><%= image_tag avatar_url(reservation.room), class: "room-regi" %></a></td>
+          <td><%= link_to reservation.room.room_name, "/rooms/#{reservation.room.id}/show" %></td>
+          <td><%= reservation.room.description %></td>
+          <td><%= reservation.people_number %></td>
+          <td><%= reservation.total_price %>円</td>
+          <td><%= reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
+          <td><%= reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
+          <td><%= link_to "詳細確認", "/reservations/#{reservation.id}/show" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </div>
+</table>
+<h3><%= link_to "ルームを探す", "/rooms?q%5Baddress_cont%5D=", class: "submit-btn btn-sub btn-op btm height-add" %></h3>

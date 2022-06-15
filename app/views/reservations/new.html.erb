@@ -1,0 +1,41 @@
+<h1 class="page-title">予約確認フォーム</h1>
+<div class="reserve-container">
+  <div class="room-form-title">予約の確認</div>
+    <%= form_with url: reservations_create_path, method: :post do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.hidden_field :people_number, value: @reservation.people_number %>
+      <%= f.hidden_field :start_date, value: @reservation.start_date %>
+      <%= f.hidden_field :end_date, value: @reservation.end_date %>
+      <%= f.hidden_field :price, value: @room.price %>
+      <div class="field">
+        <span class="reserve-element"><%= f.label :start_date ,"チェックイン日時" %></span>
+        <span class="reserve-element"><%= @reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
+      </div>
+      <div class="field">
+        <span class="reserve-element"><%= f.label :end_date ,"チェックアウト日時" %></th>
+        <span class="reserve-element"><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></td>
+      </div>
+      <div class="field">
+        <span class="reserve-element">宿泊日数</th>
+        <span class="reserve-element"><%= @day_count %>泊<%= @day_count + 1 %>日</td>
+      </div>
+      <div class="field">
+        <span class="reserve-element"><%= f.label :people_number ,"ご利用人数" %></th>
+        <span class="reserve-element"><%= @reservation.people_number %>名</td>
+      </div>
+      <div class="field">
+        <span class="reserve-element"><%= f.label :price ,"1泊料金" %></th>
+        <span class="reserve-element"><%= @reservation.price %>円</td>
+      </div>
+      <div class="field">
+        <span class="reserve-element"><%= f.label :people_number ,"合計金額" %></th>
+        <span class="reserve-element"><%= @total_price %>円</td>
+        <%= f.hidden_field :total_price, value: @total_price %>
+      </div>
+      <p class="small-str">*こちらの内容でよろしければ「予約を確定する」ボタンをを押してください</p>
+      <div><%= f.submit "予約を確定する", class: "submit-btn reserve-btn top btm" %></div>
+      <div><%= link_to "予約を見直す", :back, class: "user-link-btn danger-btn rese-back btm" %></div>
+    <% end %>
+  </div>
+</div>

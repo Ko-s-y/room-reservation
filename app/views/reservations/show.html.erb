@@ -1,0 +1,51 @@
+<h1 class="page-title">予約確認ページ</h1>
+<div class="reserve-container reserve-element">
+  <div class="room-form-title">予約済み</div>
+    <div class="field">
+      <span class="reserve-element">予約ID</span>
+      <span><%= @reservation.id %>番</span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">ルーム名</span>
+      <span><%= @reservation.room.room_name %></span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">宿泊先住所</span>
+      <span><%= @reservation.room.address %></span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">チェックイン日時</span>
+      <span><%= @reservation.start_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">チェックアウト日時</span>
+      <span><%= @reservation.end_date.strftime('%Y年 %m月 %d日 %H時 %M分') %></span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">宿泊日数</th>
+      <span class="reserve-element"><%= @day_count %>泊<%= @day_count + 1 %>日</td>
+    </div>
+    <div class="field">
+      <span class="reserve-element">ご利用人数</span>
+      <span><%= @reservation.people_number %>名</span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">一泊料金</span>
+      <span><%= @reservation.room.price %>円</span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">合計金額</span>
+      <span><%= @reservation.total_price %>円</span>
+    </div>
+    <div class="field">
+      <span class="reserve-element">予約確定日時</span>
+      <span><%= @reservation.created_at.to_s(:datetime_jp) %></span>
+    </div>
+    <div class="field">
+      <p><%= link_to "宿泊先詳細へ", @reservation.room, class: "submit-btn btn-sub btn-op btm" %></p>
+      <p><%= link_to "予約一覧ページへ", reservations_path, class: "submit-btn btn-sub btn-op btm" %></p>
+      <p><%= link_to "予約取り消し", @reservation, method: :delete, data: {confirm: "この予約を取り消しますか？"}, class: "danger-btn btn-sub btn-op btm" %></p>
+    </div>
+  </div>
+</div>
+<div class="btm"></div>

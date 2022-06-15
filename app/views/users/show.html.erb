@@ -1,0 +1,23 @@
+<h1 class="page-title">アカウント詳細ページ</h1>
+<div class="user-container-show">
+  <h3 class="user-form-title">アカウント</h3>
+  <div class="field user-element">
+    <span>ID</span>
+    <span><%= @user.id %></span>
+  </div>
+
+  <div class="field user-element">
+    <span>アカウント名</span>
+    <span><%= @user.full_name %></span>
+  </div>
+
+  <div class="field user-element">
+    <span>メールアドレス</span>
+    <span><%= @user.email %></span>
+  </div>
+
+  <div class="field">
+    <p><%= link_to "プロフィールページへ", "/users/#{@user.id}/info" , class: "submit-btn btn-sub btn-op" %></p>
+    <p><%= link_to "戻る", :back, class: "user-link-btn sub-op" %></p>
+  </div>
+</div>

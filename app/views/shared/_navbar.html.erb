@@ -1,0 +1,71 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+<!-- headerの左側 -->
+  <div class="navbar-brand">
+    <a class="site-logo" href="/">
+      <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトロゴ" class="site-logo">
+    </a>
+    <%= search_form_for @search do |f| %>  <%# room.addressで検索 %>
+      <%= f.search_field :address_cont, placeholder: "エリアで検索", class: "nav-search" %>
+    <% end %>
+    <%= search_form_for @search do |f| %>  <%# room_name || description で検索 %>
+      <%= f.search_field :room_name_or_description_cont, placeholder: "キーワードで検索", class: "nav-search" %>
+    <% end %>
+  </div>
+
+<!-- headerの右側 -->
+  <!-- ログインしていない場合 -->
+  <% if (!user_signed_in?) %>
+    <div class="navbar-item navbar-end navbar-menu">
+      <div class="buttons">
+        <%= link_to  "ログイン", new_user_session_path, class: "button is-primary" %>
+        <%= link_to  "登録する", new_user_registration_path, class: "button is-white" %>
+      </div>
+    </div>
+
+  <!-- ログイン中の場合　-->
+  <% else %>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="targetMenu">
+      <%= image_tag avatar_url(current_user), class: "navi-icon", alt: "メニュー" %>
+    </a>
+    <div id="targetMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="dropdown-menu navbar-item nav-name is-hidden-mobile  is-hidden-tablet-only">
+                <%= current_user.full_name %>
+              </a>
+              <div class="navbar-dropdown">
+                <%= link_to "ルーム登録", "/rooms/new", class: "navbar-item" %>
+                <%= link_to "予約済みルーム一覧", "/reservations", class: "navbar-item" %>
+                <%= link_to "登録済みルーム一覧", "/rooms/registered", class: "navbar-item" %>
+                <%= link_to "アカウント編集", edit_user_registration_path, class: "navbar-item" %>
+                <%= link_to "アカウント詳細", "/users/#{current_user.id}/show", class: "navbar-item" %>
+                <hr class="navbar-divider">
+                <%= link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span><%= image_tag avatar_url(current_user), class: "nav-icon navbar-menu", alt: "ユーザーアイコン" %></span>
+      </div>
+    </div>
+  <% end %>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = document.querySelectorAll('.navbar-burger');  // アイコンメニュー要素を取得
+    if ($navbarBurgers.length > 0) {  //　メニューアイコンがあるかどうかを確認
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');  // is-activeクラスを切り替え
+          $target.classList.toggle('is-active');  // is-activeクラスを切り替え
+        });
+      });
+    }
+  });
+</script>

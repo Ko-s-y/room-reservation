@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+--width: 1024px~時はユーザーネームがドロップダウンメニューです。
 
-Things you may want to cover:
+--width: 1023px以下でアイコン画像がメニューバーに変わります。
+  *ページ遷移後に連続してクリックすると反応がない為,再度ページをリロードして頂きますと解消されます。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

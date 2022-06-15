@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        full_name: 氏名
+        current_password: パスワード
+        password_confirmation: パスワードの確認
+        password: パスワード
+        email: メールアドレス
+        introduction: 自己紹介
+      reservation:
+        people_number: 人数
+        start_date: チェックイン日時
+        end_date: チェックアウト日時
+        total_price: 合計金額
+      room:
+        room_name: ルーム名
+        description: 詳細
+        price: 価格
+        address: 住所
+        avatar: ルーム画像
+  time:
+    formats:
+      full_date: "%Y年%m月%d日 (%a)"
+  date:
+    formats:
+      default: '%Y年 %m月 %d日 %H時 %M分'
+      short: '%Y年 %m月 %d日'

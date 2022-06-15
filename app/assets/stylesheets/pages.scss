@@ -1,0 +1,94 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ホームページ
+// ファーストビュー
+.first-view {
+  background-image: url("https://www.travelvoice.jp/wp-content/uploads/2017/05/space.jpg");
+  background-size: cover;
+  height: 600px;
+  background-repeat: no-repeat;
+}
+
+.form-search {
+  margin-left: 50px;
+  position: relative;
+  top: 230px;
+  background-color: white;
+  width: 45%;
+  height: 250px;
+  border-radius: 5%;
+}
+
+.home-search-btn {
+  background-color: rgb(40, 183, 214);
+  color: white;
+  width: 90%;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+.home-search input {
+  border-radius: 10px;
+  margin-top: 5px;
+  border: solid 1px black;
+}
+
+.form-title {
+  width: 90%;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.home-search {
+  padding-top: 30px;
+  padding-left: 30px;
+  margin-left: 25px;
+}
+
+.home-aria-search {
+  width: 90%;
+  height: 40px;
+  padding-left: 10px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+// セカンドビュー
+.second-text {
+  margin-top: 40px;
+  margin-left: 90px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.img-flex {
+  text-align: center;
+  padding: 40px 0px;
+  display: flex;
+  position: absolute;
+}
+
+.img-flex li {
+  flex: auto;
+  width: 25%;
+  margin: 15px 20px;
+}
+
+.aria-name {
+  position: relative;
+  bottom: 25px;
+  right: 47%;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.aria img {
+  height: 300px;
+  width: 80%;
+}

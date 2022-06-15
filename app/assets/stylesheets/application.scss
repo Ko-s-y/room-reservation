@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+// 共通レイアウト
+@import 'bulma';
+@import 'bulma-extensions';
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  height: 70px;
+  background-color: black;
+}
+
+.site-logo {
+  padding-top: 2px;
+}
+
+.navbar-brand {
+  margin-left: 30px;
+}
+
+.navbar-menu {
+  margin-right: 30px;
+}
+
+.navbar-burger {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+}
+
+.navi-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.nav-search {
+  width: 200px;
+  height: 40px;
+  margin: 15px 5px;
+}
+
+.nav-name {
+  font-size: 25px;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.nav-image {
+  width: 100px;
+  height: 100px;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.btn-sub {
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-op {
+  padding-top: 4px;
+  border: solid 2px black;
+}
+
+.sub-op {
+  margin-top: 10px;
+}
+
+li {
+  text-align: center;
+  font-size: 20px;
+}
+
+.notice {
+  background-color: aquamarine;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alert {
+  background-color: coral;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.emphasis {
+  color: burlywood;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.small-str {
+  font-size: 15px;
+}
+
+.btm {
+  margin-bottom: 15px;
+}
+
+.top {
+  margin-top: 15px;
+}
+
+.form-table td {
+  border-bottom: none;
+}
+
+.height-add {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+td {
+  border-bottom: 2px groove rgb(249, 245, 245);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  background-color: black;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  height: 180px;
+}
+
+.footer-text {
+  padding-top: 80px;
+  font-weight: bolder;
+}

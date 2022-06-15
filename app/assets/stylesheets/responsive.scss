@@ -1,0 +1,46 @@
+// レスポンシブデザイン
+@media (max-width: 1023px) {
+
+  .nav-search {
+    display: none;
+  }
+
+  .img-flex {
+    flex-wrap: wrap;
+  }
+
+  .img-flex li {
+    width: 40%;
+  }
+
+  .form-search {
+    width: 80%;
+  }
+
+  footer {
+    position: absolute;
+    bottom: -300px;
+  }
+
+}
+
+@media (max-width: 740px) {
+
+  .img-flex {
+    flex-direction: column;
+  }
+
+  .img-flex li {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .room-regi, .table-title, .room-counter {
+    display: none;
+  }
+
+  footer {
+    bottom: -900px;
+  }
+
+}

@@ -1,0 +1,184 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.room-container{
+  width: 80%;
+  border: solid 1px black;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+.form-table {
+  margin: 30px auto;
+}
+
+.room-form-title {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+.room-element {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.room-element-form {
+  width: 300px;
+  height: 35px;
+  font-size: 22px;
+  border-radius: 5px;
+  border: solid 2px black;
+  margin: 2px 0;
+  padding-left: 5px;
+  padding-top: 2px;
+}
+
+.room-submit-btn {
+  cursor: pointer;
+  width: 40%;
+  background-color: #4a90e2;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.room-submit-btn:hover {
+  background-color: #0a57af;
+}
+
+.room-danger-btn {
+  cursor: pointer;
+  width: 40%;
+  background-color: rgb(217, 84, 84);
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.room-danger-btn:hover {
+  background-color: red;
+}
+
+.room-text {
+  height: 150px;
+}
+
+textarea {
+  resize: none;
+}
+
+.room-link-btn {
+  margin-bottom: 15px;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.room-table {
+  border: solid 2px black;
+  width: 99%;
+  margin: 20px 5px;
+}
+
+.room-table th {
+  background-color: rgb(101, 96, 96);
+  color: white;
+  padding: 10px 20px;
+}
+
+.room-table td {
+  background-color: rgb(242, 238, 238);
+  padding: 10px 20px;
+}
+
+.room-regi {
+  width: 250px;
+  height: 150px;
+  /*table-layoutの指定*/
+	table-layout: fixed;
+}
+
+.room-show {
+  width: 300px;
+  height: 220px;
+}
+
+.page-title {
+  font-size: 25px;
+  display: block;
+  margin: 30px;
+  border-bottom: solid 1px rgb(56, 46, 46);
+}
+
+.app-intro {
+  font-size: 30px;
+  text-align: center;
+  display: block;
+  padding-top: 100px;
+  color: rgb(16, 157, 162);
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+.intro-container {
+  height: 900px;
+  background-image: url("app_intro2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.room-counter {
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: large;
+}
+
+.app-intro-btn {
+  width: 40%;
+  background-color: rgb(78, 114, 225);
+  color: white;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 30px;
+  box-shadow: 0 5px black;
+  position: relative;
+  top: 80px;
+}
+
+.app-intro-btn:active {
+  box-shadow: none;
+  margin-top: 5px;
+}
+
+.app-intro-btn:hover {
+  background-color: #0a57af;
+}
+
+.sorry-counter {
+  background-color: black;
+  color: white;
+  height: 80px;
+  text-align: center;
+  padding-top: 11px;
+  font-size: large;
+}
+
+.result-counter {
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: large;
+}
